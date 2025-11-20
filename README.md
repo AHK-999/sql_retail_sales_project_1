@@ -52,7 +52,6 @@ CREATE TABLE retail_sales_analysis
 - **Checking Null Values:** CLEANING DATA & DEALING WITH NULL VALUES IN DATA
 
 ```sql
-
 SELECT * FROM retail_sales_analysis
 WHERE sale_date IS NULL
 	  OR
@@ -75,12 +74,11 @@ WHERE sale_date IS NULL
 	  cogs IS NULL
 	  OR
 	  total_sale IS NULL;
-
 ```
+
 - **Deleting Null Values:** CLEANING DATA & DEALING WITH NULL VALUES IN DATA
 
 ```sql
-
 DELETE FROM retail_sales_analysis
 WHERE sale_date IS NULL
 	  OR
@@ -103,8 +101,8 @@ WHERE sale_date IS NULL
 	  cogs IS NULL
 	  OR
 	  total_sale IS NULL;
-
 ```
+
 --**Data Exploration**
 
 --**How many sales we have**
@@ -165,8 +163,8 @@ WHERE total_sale > 1000;
 ```
 
 6. **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.**:
-```sql
 
+```sql
 SELECT category,gender,COUNT(transactions_id)
 FROM retail_sales_analysis
 GROUP BY category,gender
@@ -174,6 +172,7 @@ ORDER BY category ASC;
 ```
 
 7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
+
 ```sql
 SELECT year,month,avg_sales FROM
 	(
@@ -188,6 +187,7 @@ WHERE RANK = 1;
 ```
 
 8. **Write a SQL query to find the top 5 customers based on the highest total sales **:
+
 ```sql
 SELECT customer_id,sum(total_sale) AS highest_total_sales
 FROM retail_sales_analysis 
@@ -196,6 +196,7 @@ ORDER BY 2 DESC LIMIT 5;
 ```
 
 9. **Write a SQL query to find the number of unique customers who purchased items from each category.**:
+
 ```sql
 SELECT category,COUNT(DISTINCT(customer_id)) AS no_unique_customers
 FROM retail_sales_analysis
@@ -203,6 +204,7 @@ GROUP BY 1
 ```
 
 10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17)**:
+
 ```sql
 WITH shifts_table
 	AS	
